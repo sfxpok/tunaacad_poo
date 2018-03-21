@@ -1,27 +1,29 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo
 /**
- * Write a description of class Player_1 here.
+ * Write a description of class playerOne here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Player_1 extends Player
+public class playerOne extends Player
 {
+    private final int MAX_LIVES = 5;
+    
+    private int vSpeed = 0;
+    private int accel = 1;
+    private int jumpStrength = 20;
+    private int score = 0;
+    private int lives = 2;
+    private boolean jumping;
+    
     private GreenfootImage image1;
     private GreenfootImage image2;
     private GreenfootImage image3;
     private GreenfootImage image4;
-    private int vSpeed = 0;
-    private int acceleration = 1;
-    private boolean jumping;
-    private int jumpStrength = 20;
-    private int score = 0;
-    private int lives = 2;
-    private final int max_lives = 5;
-    Counter lifeCounter = new Counter(); // instance of Counter
-   
     
-    public Player_1()
+    Counter lifeCounter = new Counter(); // instance of Counter
+    
+    public playerOne()
     {
         image1 = new GreenfootImage("ninja_normal.png");
         image2 = new GreenfootImage("ninja_jump.png");
@@ -101,7 +103,7 @@ public class Player_1 extends Player
         setLocation( getX(), getY() + vSpeed );
         if(vSpeed <= 9)
         {
-            vSpeed = vSpeed + acceleration;
+            vSpeed = vSpeed + accel;
         }
         jumping = true;
         

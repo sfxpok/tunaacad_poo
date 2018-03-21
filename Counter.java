@@ -4,12 +4,13 @@ import java.awt.Color.*;
 /**
  * A simple counter with graphical representation as an actor on screen.
  * 
- * @author mik
- * @version 1.0
+ * @author
+ * @version
  */
 public class Counter extends Actor
 {
-    private static final Color transparent = new Color(0,0,0,0);
+    private static final Color TRANSPARENT = new Color(0,0,0,0);
+    
     private GreenfootImage background;
     private int value;
     private int target;
@@ -77,7 +78,7 @@ public class Counter extends Actor
     private void updateImage()
     {
         GreenfootImage image = new GreenfootImage(background);
-        GreenfootImage text = new GreenfootImage("" + value, 22, Color.WHITE, transparent);
+        GreenfootImage text = new GreenfootImage("" + value, 22, Color.WHITE, TRANSPARENT);
         image.drawImage(text, (image.getWidth()-text.getWidth())/2, 
                         (image.getHeight()-text.getHeight())/2);
         setImage(image);

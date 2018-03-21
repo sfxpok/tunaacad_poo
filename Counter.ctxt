@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Counter
-comment0.text=\n\ A\ simple\ counter\ with\ graphical\ representation\ as\ an\ actor\ on\ screen.\n\ \n\ @author\ mik\n\ @version\ 1.0\n
+comment0.text=\n\ A\ simple\ counter\ with\ graphical\ representation\ as\ an\ actor\ on\ screen.\n\ \n\ @author\n\ @version\n
 comment1.params=
 comment1.target=Counter()
 comment1.text=\n\ Create\ a\ new\ counter,\ initialised\ to\ 0.\n
