@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.Color.*;
  
 /**
- * A simple counter with graphical representation as an actor on screen.
+ * Contador de vidas
  * 
  * @author
  * @version
@@ -16,7 +16,7 @@ public class Counter extends Actor
     private int target;
  
     /**
-     * Create a new counter, initialised to 0.
+     * Construtor do contador
      */
     public Counter()
     {
@@ -27,7 +27,7 @@ public class Counter extends Actor
     }
      
     /**
-     * Animate the display to count up (or down) to the current target value.
+     * Atualizaçao do contador quando o Actor apanha algum item
      */
     public void act() 
     {
@@ -42,20 +42,23 @@ public class Counter extends Actor
     }
  
     /**
-     * Add a new score to the current counter value.
+     * Adiçao de vidas
      */
     public void add(int score)
     {
         target += score;
     }
     
+    /**
+     * Subtracçao das vidas
+     */
     public void subtract(int score)
     {
         target -= score;
     }
  
     /**
-     * Return the current counter value.
+     * "Getter" das vidas
      */
     public int getValue()
     {
@@ -63,7 +66,7 @@ public class Counter extends Actor
     }
  
     /**
-     * Set a new counter value.
+     * "Setter" das vidas
      */
     public void setValue(int newValue)
     {
@@ -73,7 +76,7 @@ public class Counter extends Actor
     }
  
     /**
-     * Update the image on screen to show the current value.
+     * Actualizaçao da imagem que representa o numero de vidas restante
      */
     private void updateImage()
     {
