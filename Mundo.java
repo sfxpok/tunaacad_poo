@@ -17,7 +17,7 @@ public class Mundo extends World
      */
     public Mundo()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Create a new world with 800x600 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
         fundo = getBackground();
         fundo.setColor(Color.GRAY);
@@ -33,7 +33,8 @@ public class Mundo extends World
        // obstacle_1 e obstacle_2 nao sao nomes bons, alterar quando houver as imagens corretas
         
        generateObstacle_1(); 
-       generateObstacle_2(); 
+       generateObstacle_2();
+       generatePlatform();
     }   
     
     public void generateObstacle_1()
@@ -54,6 +55,17 @@ public class Mundo extends World
             int y = Greenfoot.getRandomNumber( getHeight()/2 ) + getHeight()/2 - 23 ; // 23?
             addObject(new Obstacle_2(), x, y);
         }
+    }
+    
+    /**
+     * Adiciona a plataforma no meio do mundo
+     */
+    public void generatePlatform() {
+     
+        int x = getWidth()/2;
+        int y = getHeight()/2;
+        addObject(new Platform(), x, y);
+    
     }
     
     
