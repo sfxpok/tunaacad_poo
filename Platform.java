@@ -15,23 +15,7 @@ public class Platform extends Actor
      */
     public void act() 
     {
-        moveLeft();
-    }
-    
-    /**
-     * Efeito "side-scroll" para a plataforma
-     */
-    
-    public void moveLeft() {
-    
-        setLocation(getX()-1, getY());
-        
-        if (getX() == 0)
-            getWorld().removeObject(this);
-        
-    }
-    
-    
-    
+        //
+    } 
     
 }
