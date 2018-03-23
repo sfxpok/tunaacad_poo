@@ -25,7 +25,6 @@ public class Mundo extends World
         playerOne jogadorUm = new playerOne();
         addObject(jogadorUm, 50, 530);
         addObject(jogadorUm.getLifeCounter(), 20, 20);
-        addObject(new Platform(), 400,  580);
     }
     
     public void act()
@@ -62,9 +61,13 @@ public class Mundo extends World
      */
     public void generatePlatform() {
      
-        int x = getWidth()/2;
-        int y = getHeight()/2;
-        addObject(new Platform(), x, y);
+        int middleX = getWidth()/2;
+        int middleY = getHeight()/2;
+        addObject(new Platform(), middleX, middleY);
+        
+        int groundX = 400;
+        int groundY = 580;
+        addObject(new Platform(), groundX, groundY);
     
     }
     
