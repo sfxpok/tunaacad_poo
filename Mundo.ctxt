@@ -12,5 +12,5 @@ comment4.params=
 comment4.target=void\ generateObstacle_2()
 comment5.params=
 comment5.target=void\ generatePlatform()
-comment5.text=\n\ Adiciona\ a\ plataforma\ no\ meio\ do\ mundo\n
+comment5.text=\n\ Adiciona\ a\ plataforma\ no\ meio\ do\ mundo\ e\ no\ chao\n
 numComments=6

@@ -18,13 +18,16 @@ public class Mundo extends World
     public Mundo()
     {    
         // Create a new world with 800x600 cells with a cell size of 1x1 pixels.
-        super(800, 600, 1); 
+        super(800, 600, 1);
+        
         fundo = getBackground();
         fundo.setColor(Color.GRAY);
         fundo.fill();
+        
         playerOne jogadorUm = new playerOne();
         addObject(jogadorUm, 50, 530);
         addObject(jogadorUm.getLifeCounter(), 20, 20);
+        
     }
     
     public void act()
@@ -41,7 +44,7 @@ public class Mundo extends World
         if(Greenfoot.getRandomNumber(100) < 1)
         { 
             int x = getWidth();
-            int y = Greenfoot.getRandomNumber( getHeight()/2 ) + getHeight()/2 - 23 ; // 23?
+            int y = Greenfoot.getRandomNumber(getHeight()/2) + getHeight()/2 - 23 ; // 23?
             addObject(new Obstacle_1(), x, y);
         }
     }
@@ -51,13 +54,13 @@ public class Mundo extends World
         if(Greenfoot.getRandomNumber(100) < 1)
         { 
             int x = getWidth();
-            int y = Greenfoot.getRandomNumber( getHeight()/2 ) + getHeight()/2 - 23 ; // 23?
+            int y = Greenfoot.getRandomNumber(getHeight()/2) + getHeight()/2 - 23 ; // 23?
             addObject(new Obstacle_2(), x, y);
         }
     }
     
     /**
-     * Adiciona a plataforma no meio do mundo
+     * Adiciona a plataforma no meio do mundo e no chao
      */
     public void generatePlatform() {
      

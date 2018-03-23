@@ -176,6 +176,7 @@ public class playerOne extends Player
                 lifeCounter.setValue(0);
                 //getWorld().removeObject(this);
                 getWorld().showText("GAME OVER", getWorld().getWidth()/2, getWorld().getHeight()/2);
+                getWorld().showText("Player 1 Score: " + getPoints(), 150, 530);
                 setImage(image4);
                 Greenfoot.stop();
                 //return;
