@@ -81,7 +81,7 @@ public class Counter extends Actor
     private void updateImage()
     {
         GreenfootImage image = new GreenfootImage(backgroundCounter);
-        image.scale(image.getWidth()*7,image.getHeight()*3);
+        image.scale(image.getWidth()/4,image.getHeight()/4);
         
         // FUNDO PARA CONTADOR DE VIDAS
         // GreenfootImage backgroundCounter2 = new GreenfootImage(backgroundCounter);

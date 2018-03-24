@@ -75,15 +75,15 @@ public class playerOne extends Player
     
     public void move()
     {
-        if(Greenfoot.isKeyDown("right"))
+        if(Greenfoot.isKeyDown("d"))
         {
            move(5); 
         }
-        if(Greenfoot.isKeyDown("left"))
+        if(Greenfoot.isKeyDown("a"))
         {
            move(-5); 
         }
-        if(Greenfoot.isKeyDown("down"))
+        if(Greenfoot.isKeyDown("s"))
         {
             setImage(image3);
             setLocation(getX(), getY() + 10);
@@ -92,7 +92,7 @@ public class playerOne extends Player
     
     public void checkKey()
     {
-        if(Greenfoot.isKeyDown("up") && jumping == false)
+        if(Greenfoot.isKeyDown("w") && jumping == false)
         {
             jump();
         }
