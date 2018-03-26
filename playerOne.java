@@ -15,6 +15,8 @@ public class playerOne extends Player
     private int score = 0;
     private int lives = 2;
     private boolean jumping;
+    private boolean receivedLife;
+    private int i = 1;
     
     private GreenfootImage image1;
     private GreenfootImage image2;
@@ -64,12 +66,36 @@ public class playerOne extends Player
     
     public void addLifeWithScore()
     {
-        for(int i = 1; i < 100; i++)
-        {
-            if(getPoints() >= 200 * i)
-            {
-                lifeCounter.add(1);
-            }
+        // for(int i = 1; i < 100; i++)
+        // {
+            
+            // if(receivedLife == true && getPoints() < 20 * (i+1)) {
+                // return;
+            // }
+            // else {
+                // receivedLife = false;
+            // }
+            
+            // if(getPoints() >= 20 * i && receivedLife == false)
+            // {
+                // lifeCounter.add(1);
+                // receivedLife = true;
+            // }
+            
+            // // if(getPoints() >= 200 * i)
+            // // {
+                // // lifeCounter.add(1);
+            // // }
+        // }
+        
+        if(receivedLife == true && getPoints() <= 20 * (i+1)) {
+            receivedLife = false;
+        }
+        
+        if(getPoints() >= 20 * i && getPoints() <= 20 * (i+1) && receivedLife == false) {
+            lifeCounter.add(1);
+            receivedLife = true;
+            i++;
         }
     }
     

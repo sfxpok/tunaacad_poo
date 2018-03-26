@@ -21,7 +21,7 @@ public class Counter extends Actor
     public Counter()
     {
         backgroundCounter = getImage();  // get image from class
-        value = 5;
+        // value = 5;
         target = 5;
         updateImage();
     }
@@ -31,14 +31,17 @@ public class Counter extends Actor
      */
     public void act() 
     {
-        if (value > target ) {
-            value--;
-            updateImage();
-        }
-        else if (value < target) {
-            value++;
-            updateImage();
-        }
+        // if (value > target ) {
+            // value--;
+            // updateImage();
+        // }
+        // else if (value < target) {
+            // value++;
+            // updateImage();
+        // }
+        
+        updateImage();
+        
     }
  
     /**
@@ -62,7 +65,8 @@ public class Counter extends Actor
      */
     public int getValue()
     {
-        return value;
+        // return value;
+        return target;
     }
  
     /**
@@ -71,7 +75,7 @@ public class Counter extends Actor
     public void setValue(int newValue)
     {
         target = newValue;
-        value = newValue;
+        // value = newValue;
         updateImage();
     }
  
@@ -89,7 +93,8 @@ public class Counter extends Actor
         // backgroundCounter2.fillRect(200, 200, 400, 400);
         // setImage(backgroundCounter2);
        
-        GreenfootImage text = new GreenfootImage("Lives left: " + value, 22, Color.WHITE, TRANSPARENT);
+        // GreenfootImage text = new GreenfootImage("Lives left: " + value, 22, Color.WHITE, TRANSPARENT);
+        GreenfootImage text = new GreenfootImage("Lives left: " + target, 22, Color.WHITE, TRANSPARENT);
 
         image.drawImage(text, (image.getWidth()-text.getWidth())/2, 
                         (image.getHeight()-text.getHeight())/2);
