@@ -43,7 +43,7 @@ public class Mundo extends World
     
     public void generateObstacle_1()
     {
-        if(Greenfoot.getRandomNumber(100) < 1)
+        if(Greenfoot.getRandomNumber(100) < 0.5)
         { 
             int x = getWidth();
             int y = Greenfoot.getRandomNumber(getHeight()/2) + getHeight()/2 - 23 ; // 23?
@@ -58,7 +58,7 @@ public class Mundo extends World
     
     public void generateObstacle_2()
     {
-        if(Greenfoot.getRandomNumber(100) < 1)
+        if(Greenfoot.getRandomNumber(100) < 0.5)
         { 
             int x = getWidth();
             int y = Greenfoot.getRandomNumber(getHeight()/2) + getHeight()/2 - 23 ; // 23?

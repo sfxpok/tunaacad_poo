@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
 
 /**
  * Write a description of class Obstacle_2 here.
@@ -15,6 +16,7 @@ public class Obstacle_2 extends Obstacle
     public void act() 
     {
         move();
+        // conflict();
     }    
     
     public void move()
@@ -25,6 +27,17 @@ public class Obstacle_2 extends Obstacle
         {
             getWorld().removeObject(this);
         }
+    }
+    
+    public void conflict() {
+        
+        if(!getIntersectingObjects(Obstacle_1.class).isEmpty()) {
+            getWorld().removeObject(this);
+        }
+        else {
+            return;
+        }
+    
     }
     
     /**public void updateCounter()
