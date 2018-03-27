@@ -86,12 +86,6 @@ public class Counter extends Actor
     {
         GreenfootImage image = new GreenfootImage(backgroundCounter);
         image.scale(image.getWidth()/4,image.getHeight()/4);
-        
-        // FUNDO PARA CONTADOR DE VIDAS
-        // GreenfootImage backgroundCounter2 = new GreenfootImage(backgroundCounter);
-        // backgroundCounter2.setColor(Color.RED);
-        // backgroundCounter2.fillRect(200, 200, 400, 400);
-        // setImage(backgroundCounter2);
        
         // GreenfootImage text = new GreenfootImage("Lives left: " + value, 22, Color.WHITE, TRANSPARENT);
         GreenfootImage text = new GreenfootImage("Lives left: " + target, 22, Color.WHITE, TRANSPARENT);

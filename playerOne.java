@@ -13,10 +13,12 @@ public class playerOne extends Player
     private int accel = 1;
     private int jumpStrength = 20;
     private int score = 0;
-    private int lives = 2;
+    // private int lives = 2;
     private boolean jumping;
     private boolean receivedLife;
     private int i = 1;
+    
+    private boolean capturedEnemy;
     
     private GreenfootImage image1;
     private GreenfootImage image2;
@@ -66,26 +68,10 @@ public class playerOne extends Player
     
     public void addLifeWithScore()
     {
-        // for(int i = 1; i < 100; i++)
-        // {
-            
-            // if(receivedLife == true && getPoints() < 20 * (i+1)) {
-                // return;
-            // }
-            // else {
-                // receivedLife = false;
-            // }
-            
-            // if(getPoints() >= 20 * i && receivedLife == false)
-            // {
-                // lifeCounter.add(1);
-                // receivedLife = true;
-            // }
-            
-            // // if(getPoints() >= 200 * i)
-            // // {
-                // // lifeCounter.add(1);
-            // // }
+        
+        // if (capturedEnemy) {
+            // i--;
+            // capturedEnemy = false;
         // }
         
         if(receivedLife == true && getPoints() <= 20 * (i+1)) {
@@ -197,6 +183,9 @@ public class playerOne extends Player
     {
         if(isTouching(Obstacle_2.class))
         {
+            
+            // i--;
+            
             if (lifeCounter.getValue() == 1)
             {
                 //lifeCounter.setValue(0);
@@ -212,6 +201,8 @@ public class playerOne extends Player
             removeTouching(Obstacle_2.class);
             removePoints();
             getWorld().showText("Player 1 Score: " + score, 130, getWorld().getHeight() - 20);
+            
+            
         }
     }
 }
