@@ -25,10 +25,10 @@ public class Mundo extends World
         fundo.fill();
         
         playerOne jogadorUm = new playerOne();
-        addObject(jogadorUm, 50, 530);
+        addObject(jogadorUm, 50, 549);
         addObject(jogadorUm.getLifeCounter(), 70, getHeight()/2 + 50);
         
-        generatePlatform();
+        createPlatform();
         
     }
     
@@ -36,17 +36,17 @@ public class Mundo extends World
     {
        // obstacle_1 e obstacle_2 nao sao nomes bons, alterar quando houver as imagens corretas
         
-       generateObstacle_1(); 
-       generateObstacle_2();
-       
+       createObstacle_1(); 
+       createObstacle_2();
+       sideScrollPlatform();
     }   
     
-    public void generateObstacle_1()
+    public void createObstacle_1()
     {
         if(Greenfoot.getRandomNumber(100) < 0.5)
         { 
             int x = getWidth();
-            int y = Greenfoot.getRandomNumber(getHeight()/2) + getHeight()/2 - 23 ; // 23?
+            int y = Greenfoot.getRandomNumber(getHeight()/2) + getHeight()/2 - 23;
             
             if(y > 270 && y < 320) {
                 return;
@@ -56,12 +56,12 @@ public class Mundo extends World
         }
     }
     
-    public void generateObstacle_2()
+    public void createObstacle_2()
     {
         if(Greenfoot.getRandomNumber(100) < 0.5)
         { 
             int x = getWidth();
-            int y = Greenfoot.getRandomNumber(getHeight()/2) + getHeight()/2 - 23 ; // 23?
+            int y = Greenfoot.getRandomNumber(getHeight()/2) + getHeight()/2 - 23;
             
             if(y > 270 && y < 320) {
                 return;
@@ -74,16 +74,28 @@ public class Mundo extends World
     /**
      * Adiciona a plataforma no meio do mundo e no chao
      */
-    public void generatePlatform() {
+    public void createPlatform() {      
+        //Adiciona plataformas no meio do Mundo
+        addObject(new Platform(), 0, getHeight()/2);
+        addObject(new Platform(), getWidth()/2, getHeight()/2);
         
-        int middleX = getWidth()/2;
-        int middleY = getHeight()/2;
-        addObject(new Platform(), middleX, middleY);
-        
-        int groundX = 400;
-        int groundY = 580;
-        addObject(new Platform(), groundX, groundY);
+        //Adiciona plataformas no fundo do Mundo
+        addObject(new Platform(), 0, (getHeight())-10);
+        addObject(new Platform(), getWidth()/2, (getHeight())-10);
+    }
     
+    /**
+     * Remove plataforma se esta chega ao limite direito do Mundo,
+     * adiciona nova plataforma após esta ser apagada
+     */
+    public void sideScrollPlatform(){
+        int numPlatforms = getObjects(Platform.class).size();
+        Platform platform = new Platform();
+        //if(getObjects(Platform.class).isEmpty()){
+        if(numPlatforms == 2){
+            addObject(new Platform(), 0, getHeight()/2);
+            addObject(new Platform(), 0, (getHeight())-10);
+        }
     }
     
     
