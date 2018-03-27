@@ -74,11 +74,11 @@ public class playerOne extends Player
             // capturedEnemy = false;
         // }
         
-        if(receivedLife == true && getPoints() <= 20 * (i+1)) {
+        if(receivedLife == true && getPoints() <= 60 * (i+1)) {
             receivedLife = false;
         }
         
-        if(getPoints() >= 20 * i && getPoints() <= 20 * (i+1) && receivedLife == false) {
+        if(getPoints() >= 60 * i && getPoints() <= 60 * (i+1) && receivedLife == false) {
             lifeCounter.add(1);
             receivedLife = true;
             i++;
@@ -184,7 +184,7 @@ public class playerOne extends Player
         if(isTouching(Obstacle_2.class))
         {
             
-            // i--;
+            //i--;
             
             if (lifeCounter.getValue() == 1)
             {

@@ -65,7 +65,7 @@ public class Mundo extends World
      * Adiciona a plataforma no meio do mundo e no chao
      */
     public void generatePlatform() {
-     
+        
         int middleX = getWidth()/2;
         int middleY = getHeight()/2;
         addObject(new Platform(), middleX, middleY);
