@@ -47,6 +47,11 @@ public class Mundo extends World
         { 
             int x = getWidth();
             int y = Greenfoot.getRandomNumber(getHeight()/2) + getHeight()/2 - 23 ; // 23?
+            
+            if(y > 270 && y < 320) {
+                return;
+            }
+            
             addObject(new Obstacle_1(), x, y);
         }
     }
@@ -57,6 +62,11 @@ public class Mundo extends World
         { 
             int x = getWidth();
             int y = Greenfoot.getRandomNumber(getHeight()/2) + getHeight()/2 - 23 ; // 23?
+            
+            if(y > 270 && y < 320) {
+                return;
+            }
+            
             addObject(new Obstacle_2(), x, y);
         }
     }
