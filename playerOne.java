@@ -195,7 +195,7 @@ public class playerOne extends Player
                 //getWorld().showText("Player 1 Score: " + getPoints(), 150, 530);
                 setImage(image4);
                 Greenfoot.stop();
-                //return;
+                return; // nao tirar este return
             }
             lifeCounter.subtract(1);
             removeTouching(Obstacle_2.class);
