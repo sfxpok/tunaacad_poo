@@ -12,7 +12,7 @@ public class Mundo extends World
     //private Counter livesCounter = new Counter("Lives", 3);
     //private int counter;
     /**
-     * Constructor for objects of class Mundo.
+     * Construtor do Mundo
      * 
      */
     public Mundo()

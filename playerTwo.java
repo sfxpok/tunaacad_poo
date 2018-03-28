@@ -28,33 +28,50 @@ public class playerTwo extends Player
       addLifeWithScore();
     }
     
+    /**
+     * Retorna o numero de vidas dentro da classe Counter
+     */
+    
     public Counter getLifeCounter()
     {
         return lifeCounter;
     }   
+    
+    /**
+     * Adiciona 20 pontos ao jogador
+     */
     
     public void addPoints()
     {
         score = score + 20;
     }
     
+    /**
+     * Retira 10 pontos ao jogador
+     */
+    
     public void removePoints()
     {
         score = score - 10;
     }
+    
+    /**
+     * Retorna os pontos que o jogador tem
+     */
     
     public int getPoints()
     {
         return score;
     }
     
+    /**
+     * Incrementa o numero de vidas do jogador se o jogador atingiu uma certa pontuaçao. A variavel
+     * receivedLife e util aqui porque evita que o jogador receba vidas infinitivamente (AINDA POR
+     * MUDAR)
+     */
+    
     public void addLifeWithScore()
     {
-        
-        // if (capturedEnemy) {
-            // i--;
-            // capturedEnemy = false;
-        // }
         
         if(receivedLife == true && getPoints() <= 60 * (i+1)) {
             receivedLife = false;
@@ -66,6 +83,10 @@ public class playerTwo extends Player
             i++;
         }
     }
+    
+    /**
+     * Controlos dados ao jogador
+     */
     
     public void move()
     {
@@ -84,6 +105,10 @@ public class playerTwo extends Player
         }
     }
     
+    /**
+     * Faz com que o jogador salte, desde que teja no chao e que a tecla i esteja a ser pressionada
+     */
+    
     public void checkKey()
     {
         if(Greenfoot.isKeyDown("i") && jumping == false)
@@ -91,7 +116,7 @@ public class playerTwo extends Player
             jump();
         }
     }
-    
+   
     public void captureObstacle_1()
     {
         if(isTouching(Obstacle_1.class))
@@ -99,6 +124,7 @@ public class playerTwo extends Player
             removeTouching(Obstacle_1.class);
             addPoints();
             getWorld().showText("Player 2 Score: " + score, 130, getWorld().getHeight() - 300);
+            Greenfoot.playSound("deepmaleburp.wav");
         }
     }
     
@@ -115,6 +141,7 @@ public class playerTwo extends Player
                 lifeCounter.subtract(1);
                 //getWorld().removeObject(this);
                 getWorld().showText("GAME OVER", getWorld().getWidth()/2, getWorld().getHeight()/2);
+                Greenfoot.playSound("trumpetfail.wav");
                 //getWorld().showText("Player 1 Score: " + getPoints(), 150, 530);
                 setImage(image4);
                 Greenfoot.stop();
@@ -124,6 +151,7 @@ public class playerTwo extends Player
             removeTouching(Obstacle_2.class);
             removePoints();
             getWorld().showText("Player 2 Score: " + score, 130, getWorld().getHeight() - 300);
+            Greenfoot.playSound("ow.wav");
             
             
         }

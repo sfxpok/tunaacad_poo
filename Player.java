@@ -45,16 +45,11 @@ public class Player extends Actor
         setImage(image1);
     }
     
-    public void fall()
-    {
-        setLocation( getX(), getY() + vSpeed );
-        if(vSpeed <= 9)
-        {
-            vSpeed = vSpeed + accel;
-        }
-        jumping = true;
-        
-    }
+    /**
+     * Verificaçao se o jogador esta no chao ou nao.
+     * Esta verificaçao tem como auxiliar, o chao, sendo esse chao um Actor que tambem esta a
+     * detectar se o jogador esta no chao ou nao.
+     */
     
     public boolean onGround()
     {
@@ -73,6 +68,10 @@ public class Player extends Actor
         }
     }
     
+    /**
+     * Permite que o jogador se mova no chao (?)
+     */
+    
     public void moveToGround(Actor ground)
     {
         int groundHeight = ground.getImage().getHeight();
@@ -82,6 +81,10 @@ public class Player extends Actor
         jumping = false;
         setImage(image1);
     }
+    
+    /**
+     * Verifica se o jogador esta a cair
+     */
     
     public void checkFall()
     {
@@ -95,6 +98,9 @@ public class Player extends Actor
         }
     }
     
+    /**
+     * Habilidade de poder saltar
+     */
     
     public void jump()
     {
@@ -102,6 +108,21 @@ public class Player extends Actor
         jumping = true;
         fall();
         setImage(image2);
+    }
+    
+    /**
+     * O jogador cai com uma determinada velocidade se o mesmo esta no ar
+     */
+    
+    public void fall()
+    {
+        setLocation( getX(), getY() + vSpeed );
+        if(vSpeed <= 9)
+        {
+            vSpeed = vSpeed + accel;
+        }
+        jumping = true;
+        
     }
     
 }
