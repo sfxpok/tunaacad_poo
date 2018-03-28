@@ -98,7 +98,7 @@ public class playerOne extends Player
         {
             removeTouching(Obstacle_1.class);
             addPoints();
-            getWorld().showText("Player 1 Score: " + score, 130, getWorld().getHeight() - 20);
+            getWorld().showText("Player 1 Score: " + score, 130, getWorld().getHeight() - 10);
         }
     }
     
@@ -123,7 +123,7 @@ public class playerOne extends Player
             lifeCounter.subtract(1);
             removeTouching(Obstacle_2.class);
             removePoints();
-            getWorld().showText("Player 1 Score: " + score, 130, getWorld().getHeight() - 20);
+            getWorld().showText("Player 1 Score: " + score, 130, getWorld().getHeight() - 10);
             
             
         }

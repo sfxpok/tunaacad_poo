@@ -28,6 +28,10 @@ public class Mundo extends World
         addObject(jogadorUm, 50, 549);
         addObject(jogadorUm.getLifeCounter(), 70, getHeight()/2 + 50);
         
+        playerTwo jogadorDois = new playerTwo();
+        addObject(jogadorDois, 50, 260);
+        addObject(jogadorDois.getLifeCounter(), 70, 50);
+        
         createPlatform();
         
     }
@@ -44,11 +48,16 @@ public class Mundo extends World
     public void createObstacle_1()
     {
         if(Greenfoot.getRandomNumber(100) < 0.5)
-        { 
+        {
             int x = getWidth();
-            int y = Greenfoot.getRandomNumber(getHeight()/2) + getHeight()/2 - 23;
+            // int y = Greenfoot.getRandomNumber(getHeight()/2) + getHeight()/2 - 23;
+            int y = Greenfoot.getRandomNumber(getHeight());
             
-            if(y > 270 && y < 320) {
+            // if(y > 270 && y < 320) {
+                // return;
+            // }
+            
+            if(y > 0 && y < 20 || y > 270 && y < 320 || y > 550 && y < 600) {
                 return;
             }
             
@@ -61,9 +70,14 @@ public class Mundo extends World
         if(Greenfoot.getRandomNumber(100) < 0.5)
         { 
             int x = getWidth();
-            int y = Greenfoot.getRandomNumber(getHeight()/2) + getHeight()/2 - 23;
+            // int y = Greenfoot.getRandomNumber(getHeight()/2) + getHeight()/2 - 23;
+            int y = Greenfoot.getRandomNumber(getHeight());
             
-            if(y > 270 && y < 320) {
+            // if(y > 270 && y < 320) {
+                // return;
+            // }
+            
+            if(y > 0 && y < 20 || y > 270 && y < 320 || y > 550 && y < 600) {
                 return;
             }
             
