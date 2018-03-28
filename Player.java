@@ -14,13 +14,11 @@ public class Player extends Actor
     private int vSpeed = 0;
     private int accel = 1;
     private int jumpStrength = 20;
-    private int score = 0;
+    protected int score = 0;
     // private int lives = 2;
     protected boolean jumping;
-    private boolean receivedLife;
+    protected boolean receivedLife;
     private int i = 1;
-    
-    private boolean capturedEnemy;
     
     protected GreenfootImage image1;
     protected GreenfootImage image2;
