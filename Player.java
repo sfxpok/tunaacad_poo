@@ -38,7 +38,7 @@ public class Player extends Actor
     
     public Player()
     {
-        image1 = new GreenfootImage("ninja_normal.png");
+        image1 = new GreenfootImage("ninja_normal.png"); // poe as imagens num array?
         image2 = new GreenfootImage("ninja_jump.png");
         image3 = new GreenfootImage("ninja_crouch.png");
         image4 = new GreenfootImage("ninja_over.png");

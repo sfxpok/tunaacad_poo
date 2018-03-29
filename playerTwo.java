@@ -28,6 +28,23 @@ public class playerTwo extends Player
       addLifeWithScore();
     }
     
+    public void gameOver() {
+        
+        //lifeCounter.setValue(0);
+        lifeCounter.subtract(1);
+        //getWorld().removeObject(this);
+        getWorld().showText("GAME OVER", getWorld().getWidth()/2, getWorld().getHeight()/2);
+        
+        getWorld().showText("Player 1 wins!", getWorld().getWidth()/2, getWorld().getHeight()/2+100);
+        
+        Greenfoot.playSound("trumpetfail.wav");
+        //getWorld().showText("Player 1 Score: " + getPoints(), 150, 530);
+        setImage(image4);
+        Greenfoot.stop();
+        // return;
+        
+    }
+    
     /**
      * Retorna o numero de vidas dentro da classe Counter
      */
