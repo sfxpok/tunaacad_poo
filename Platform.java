@@ -16,14 +16,14 @@ public class Platform extends Actor
     public void act() 
     {
         move(2);
-        removePlataform();
+        removePlatform();
     }
     
     /**
      * Remove plataforma se esta chega ao limite direito do Mundo,
      * adiciona nova plataforma após esta ser apagada
      */
-    public void removePlataform()
+    public void removePlatform()
     {
         if(getX() == 799)
         {

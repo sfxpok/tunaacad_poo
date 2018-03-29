@@ -19,16 +19,6 @@ public class Obstacle_2 extends Obstacle
         // conflict();
     }    
     
-    public void move()
-    {
-        setLocation(getX() - 2, getY());
-        
-        if(getX() == 0 )
-        {
-            getWorld().removeObject(this);
-        }
-    }
-    
     public void conflict() {
         
         if(!getIntersectingObjects(Obstacle_1.class).isEmpty()) {

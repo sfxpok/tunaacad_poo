@@ -14,18 +14,6 @@ public class Obstacle_1 extends Obstacle
      */
     public void act() 
     {
-        // Add your action code here.
-        //generate();
         move();
     } 
-    
-    public void move()
-    {
-        setLocation(getX() - 2, getY() );
-        
-        if(getX() == 0)
-        {
-            getWorld().removeObject(this);
-        }
-    }
 }

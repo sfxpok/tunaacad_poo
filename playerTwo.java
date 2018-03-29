@@ -132,21 +132,12 @@ public class playerTwo extends Player
     {
         if(isTouching(Obstacle_2.class))
         {
-            
-            //i--;
-            
             if (lifeCounter.getValue() == 1)
             {
-                //lifeCounter.setValue(0);
-                lifeCounter.subtract(1);
-                //getWorld().removeObject(this);
-                getWorld().showText("GAME OVER", getWorld().getWidth()/2, getWorld().getHeight()/2);
-                Greenfoot.playSound("trumpetfail.wav");
-                //getWorld().showText("Player 1 Score: " + getPoints(), 150, 530);
-                setImage(image4);
-                Greenfoot.stop();
-                return; // nao tirar este return
+                gameOver();
+                return;
             }
+            
             lifeCounter.subtract(1);
             removeTouching(Obstacle_2.class);
             removePoints();

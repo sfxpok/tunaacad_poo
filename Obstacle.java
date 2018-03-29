@@ -14,6 +14,16 @@ public class Obstacle extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
-    }    
+        // move();
+    }
+    
+    public void move()
+    {
+        setLocation(getX() - 2, getY());
+        
+        if(getX() == 0 )
+        {
+            getWorld().removeObject(this);
+        }
+    }
 }

@@ -5,6 +5,6 @@ comment1.params=
 comment1.target=void\ act()
 comment1.text=\n\ Act\ -\ do\ whatever\ the\ Platform\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
 comment2.params=
-comment2.target=void\ removePlataform()
+comment2.target=void\ removePlatform()
 comment2.text=\n\ Remove\ plataforma\ se\ esta\ chega\ ao\ limite\ direito\ do\ Mundo,\n\ adiciona\ nova\ plataforma\ ap\u00F3s\ esta\ ser\ apagada\n
 numComments=3
