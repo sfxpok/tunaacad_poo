@@ -11,6 +11,9 @@ public class Mundo extends World
     private GreenfootImage fundo;
     //private Counter livesCounter = new Counter("Lives", 3);
     //private int counter;
+    // private int x;
+    // private int y;
+    
     /**
      * Construtor do Mundo
      * 
@@ -33,7 +36,6 @@ public class Mundo extends World
         addObject(jogadorDois.getLifeCounter(), 70, 50);
         
         createPlatform();
-        
     }
     
     public void act()
@@ -45,6 +47,17 @@ public class Mundo extends World
        sideScrollPlatform();
     }   
     
+    public boolean avoidConflict(int y) {
+    
+        if(y > 0 && y < 20 || y > 270 && y < 320 || y > 550 && y < 600) {
+            return true;
+        }
+        else {
+            return false;
+        }
+        
+    }
+    
     public void createObstacle_1()
     {
         if(Greenfoot.getRandomNumber(100) < 0.5)
@@ -53,13 +66,17 @@ public class Mundo extends World
             // int y = Greenfoot.getRandomNumber(getHeight()/2) + getHeight()/2 - 23;
             int y = Greenfoot.getRandomNumber(getHeight());
             
+            if(avoidConflict(y)) {
+                return;
+            }
+
             // if(y > 270 && y < 320) {
                 // return;
             // }
             
-            if(y > 0 && y < 20 || y > 270 && y < 320 || y > 550 && y < 600) {
-                return;
-            }
+            // if(y > 0 && y < 20 || y > 270 && y < 320 || y > 550 && y < 600) {
+                // return;
+            // }
             
             addObject(new Obstacle_1(), x, y);
         }
@@ -73,13 +90,15 @@ public class Mundo extends World
             // int y = Greenfoot.getRandomNumber(getHeight()/2) + getHeight()/2 - 23;
             int y = Greenfoot.getRandomNumber(getHeight());
             
+            avoidConflict(y);
+            
             // if(y > 270 && y < 320) {
                 // return;
             // }
             
-            if(y > 0 && y < 20 || y > 270 && y < 320 || y > 550 && y < 600) {
-                return;
-            }
+            // if(y > 0 && y < 20 || y > 270 && y < 320 || y > 550 && y < 600) {
+                // return;
+            // }
             
             addObject(new Obstacle_2(), x, y);
         }
