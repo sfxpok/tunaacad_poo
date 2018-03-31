@@ -16,18 +16,6 @@ public class Obstacle_2 extends Obstacle
     public void act() 
     {
         move();
-        // conflict();
-    }    
-    
-    public void conflict() {
-        
-        if(!getIntersectingObjects(Obstacle_1.class).isEmpty()) {
-            getWorld().removeObject(this);
-        }
-        else {
-            return;
-        }
-    
     }
     
     /**public void updateCounter()
