@@ -11,6 +11,7 @@ public class playerTwo extends Player
     private int i = 1;
     private int score;
     private boolean receivedLife;
+    private int scoreToGetLife = 60;
     // private boolean jumping;
 
     public playerTwo()
@@ -90,11 +91,11 @@ public class playerTwo extends Player
     public void addLifeWithScore()
     {
         
-        if(receivedLife == true && getPoints() <= 60 * (i+1)) {
+        if(receivedLife == true && getPoints() <= scoreToGetLife * (i+1)) {
             receivedLife = false;
         }
         
-        if(getPoints() >= 60 * i && getPoints() <= 60 * (i+1) && receivedLife == false) {
+        if(getPoints() >= scoreToGetLife * i && getPoints() <= scoreToGetLife * (i+1) && receivedLife == false) {
             lifeCounter.add(1);
             receivedLife = true;
             i++;
