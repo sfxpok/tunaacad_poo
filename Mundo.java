@@ -18,8 +18,8 @@ public class Mundo extends World
     // private boolean createdObsTwo;
     
     /**
-     * Construtor do Mundo
-     * 
+     * O construtor cria um mundo do tamanho 800x600 com um fundo cinzento.
+     * O jogadorUm e jogadorDois instancias das classes playerOne e playerTwo, respetivamente. 
      */
     public Mundo()
     {    
@@ -48,6 +48,19 @@ public class Mundo extends World
        sideScrollPlatform();
        createObstacle();
     }   
+    
+    /**
+     * Adiciona a plataforma no meio do mundo e no chao
+     */
+    public void createPlatform() {      
+        //Adiciona plataformas no meio do Mundo
+        addObject(new Platform(), 0, getHeight()/2);
+        addObject(new Platform(), getWidth()/2, getHeight()/2);
+        
+        //Adiciona plataformas no fundo do Mundo
+        addObject(new Platform(), 0, (getHeight())-10);
+        addObject(new Platform(), getWidth()/2, (getHeight())-10);
+    }
     
     /**
      * Cria um obstaculo aleatoriamente no Mundo desde que o mesmo nao esteja por cima das
@@ -80,6 +93,11 @@ public class Mundo extends World
         
     }
     
+    /**
+     * Este metodo faz com que os obstaculos nao fiquem por cima das plataformas ou quase fora do
+     * Mundo
+     */
+    
     public boolean avoidConflict(int y) {
     
         if(y > 0 && y < 20 || y > 270 && y < 320 || y > 550 && y < 600) {
@@ -91,27 +109,22 @@ public class Mundo extends World
         
     }
     
+    /**
+     * Cria o obstaculo (barril)
+     */
+    
     public void createObstacleOne(int x, int y)
     {
         addObject(new Obstacle_1(), x, y);
     }
     
+    /**
+     * Cria o inimigo
+     */
+    
     public void createObstacleTwo(int x, int y)
     {
         addObject(new Obstacle_2(), x, y);
-    }
-    
-    /**
-     * Adiciona a plataforma no meio do mundo e no chao
-     */
-    public void createPlatform() {      
-        //Adiciona plataformas no meio do Mundo
-        addObject(new Platform(), 0, getHeight()/2);
-        addObject(new Platform(), getWidth()/2, getHeight()/2);
-        
-        //Adiciona plataformas no fundo do Mundo
-        addObject(new Platform(), 0, (getHeight())-10);
-        addObject(new Platform(), getWidth()/2, (getHeight())-10);
     }
     
     /**
@@ -120,11 +133,14 @@ public class Mundo extends World
      */
     public void sideScrollPlatform(){
         int numPlatforms = getObjects(Platform.class).size();
+        int yCoordPlatformMiddle = getHeight()/2;
+        int yCoordPlatformBottom = getHeight()-10;
+        
         Platform platform = new Platform();
         //if(getObjects(Platform.class).isEmpty()){
         if(numPlatforms == 2){
-            addObject(new Platform(), 0, getHeight()/2);
-            addObject(new Platform(), 0, (getHeight())-10);
+            addObject(new Platform(), 0, yCoordPlatformMiddle);
+            addObject(new Platform(), 0, yCoordPlatformBottom);
         }
     }
     

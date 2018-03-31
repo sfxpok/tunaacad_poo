@@ -20,10 +20,15 @@ public class Player extends Actor
     protected boolean receivedLife;
     private int i = 1;
     
-    protected GreenfootImage image1;
-    protected GreenfootImage image2;
-    protected GreenfootImage image3;
-    protected GreenfootImage image4;
+    // protected GreenfootImage image1;
+    // protected GreenfootImage image2;
+    // protected GreenfootImage image3;
+    // protected GreenfootImage image4;
+    
+    protected GreenfootImage skinPlayerWalk;
+    protected GreenfootImage skinPlayerJump;
+    protected GreenfootImage skinPlayerCrouch;
+    protected GreenfootImage skinPlayerGameOver;
     
     Counter lifeCounter = new Counter(); // instance of Counter
     
@@ -38,11 +43,17 @@ public class Player extends Actor
     
     public Player()
     {
-        image1 = new GreenfootImage("ninja_normal.png"); // poe as imagens num array?
-        image2 = new GreenfootImage("ninja_jump.png");
-        image3 = new GreenfootImage("ninja_crouch.png");
-        image4 = new GreenfootImage("ninja_over.png");
-        setImage(image1);
+        // image1 = new GreenfootImage("ninja_normal.png"); // poe as imagens num array?
+        // image2 = new GreenfootImage("ninja_jump.png");
+        // image3 = new GreenfootImage("ninja_crouch.png");
+        // image4 = new GreenfootImage("ninja_over.png");
+        // setImage(image1);
+        
+        skinPlayerWalk = new GreenfootImage("ninja_normal.png");
+        skinPlayerJump = new GreenfootImage("ninja_jump.png");
+        skinPlayerCrouch = new GreenfootImage("ninja_crouch.png");
+        skinPlayerGameOver = new GreenfootImage("ninja_over.png");
+        setImage(skinPlayerWalk);
     }
     
     /**
@@ -79,7 +90,7 @@ public class Player extends Actor
         
         setLocation(getX(), newY);
         jumping = false;
-        setImage(image1);
+        setImage(skinPlayerWalk);
     }
     
     /**
@@ -107,7 +118,7 @@ public class Player extends Actor
         vSpeed = vSpeed - jumpStrength;
         jumping = true;
         fall();
-        setImage(image2);
+        setImage(skinPlayerJump);
     }
     
     /**
@@ -133,7 +144,7 @@ public class Player extends Actor
         getWorld().showText("GAME OVER", getWorld().getWidth()/2, getWorld().getHeight()/2);
         Greenfoot.playSound("trumpetfail.wav");
         //getWorld().showText("Player 1 Score: " + getPoints(), 150, 530);
-        setImage(image4);
+        setImage(skinPlayerGameOver);
         Greenfoot.stop();
         // return;
         

@@ -39,7 +39,7 @@ public class playerOne extends Player
         
         Greenfoot.playSound("trumpetfail.wav");
         //getWorld().showText("Player 1 Score: " + getPoints(), 150, 530);
-        setImage(image4);
+        setImage(skinPlayerGameOver);
         Greenfoot.stop();
         // return;
         
@@ -96,7 +96,7 @@ public class playerOne extends Player
         }
         if(Greenfoot.isKeyDown("s"))
         {
-            setImage(image3);
+            setImage(skinPlayerCrouch);
             setLocation(getX(), getY() + 10);
         }
     }
