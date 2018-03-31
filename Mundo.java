@@ -14,6 +14,9 @@ public class Mundo extends World
     // private int x;
     // private int y;
     
+    private boolean createdObsOne = false;
+    // private boolean createdObsTwo;
+    
     /**
      * Construtor do Mundo
      * 
@@ -41,11 +44,41 @@ public class Mundo extends World
     public void act()
     {
        // obstacle_1 e obstacle_2 nao sao nomes bons, alterar quando houver as imagens corretas
-        
-       createObstacle_1(); 
-       createObstacle_2();
+
        sideScrollPlatform();
+       createObstacle();
     }   
+    
+    /**
+     * Cria um obstaculo aleatoriamente no Mundo desde que o mesmo nao esteja por cima das
+     * plataformas. Se e o caso, entao esse obstaculo nao e gerado. Ambos os obstaculos sao
+     * gerados conforme uma condiçao no fim deste metodo, onde a mesma esta dependente se um
+     * dado obstaculo ja foi gerado ou nao.
+     */
+    
+    public void createObstacle() {
+     
+        if(Greenfoot.getRandomNumber(100) < 0.5)
+        { 
+            int x = getWidth();
+            int y = Greenfoot.getRandomNumber(getHeight());
+            
+            if(avoidConflict(y)) {
+                return;
+            }
+            
+            if(!createdObsOne) {
+                createObstacleOne(x, y);
+                createdObsOne = true;
+            }
+            else {
+                createObstacleTwo(x, y);
+                createdObsOne = false;
+            }
+
+        }
+        
+    }
     
     public boolean avoidConflict(int y) {
     
@@ -58,50 +91,14 @@ public class Mundo extends World
         
     }
     
-    public void createObstacle_1()
+    public void createObstacleOne(int x, int y)
     {
-        if(Greenfoot.getRandomNumber(100) < 0.5)
-        {
-            int x = getWidth();
-            // int y = Greenfoot.getRandomNumber(getHeight()/2) + getHeight()/2 - 23;
-            int y = Greenfoot.getRandomNumber(getHeight());
-            
-            if(avoidConflict(y)) {
-                return;
-            }
-
-            // if(y > 270 && y < 320) {
-                // return;
-            // }
-            
-            // if(y > 0 && y < 20 || y > 270 && y < 320 || y > 550 && y < 600) {
-                // return;
-            // }
-            
-            addObject(new Obstacle_1(), x, y);
-        }
+        addObject(new Obstacle_1(), x, y);
     }
     
-    public void createObstacle_2()
+    public void createObstacleTwo(int x, int y)
     {
-        if(Greenfoot.getRandomNumber(100) < 0.5)
-        { 
-            int x = getWidth();
-            // int y = Greenfoot.getRandomNumber(getHeight()/2) + getHeight()/2 - 23;
-            int y = Greenfoot.getRandomNumber(getHeight());
-            
-            avoidConflict(y);
-            
-            // if(y > 270 && y < 320) {
-                // return;
-            // }
-            
-            // if(y > 0 && y < 20 || y > 270 && y < 320 || y > 550 && y < 600) {
-                // return;
-            // }
-            
-            addObject(new Obstacle_2(), x, y);
-        }
+        addObject(new Obstacle_2(), x, y);
     }
     
     /**
