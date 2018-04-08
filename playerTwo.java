@@ -13,17 +13,19 @@ public class playerTwo extends Player
     private boolean receivedLife;
     private int scoreToGetLife = 60;
     // private boolean jumping;
+    
 
     public playerTwo()
     {
         //
+        setImage(skinPlayerWalk);
     }
     
     public void act() 
     {
       checkFall();
       checkKey();
-      move();
+      movement();
       captureObstacle_1();
       captureObstacle_2();
       addLifeWithScore();
@@ -102,26 +104,22 @@ public class playerTwo extends Player
         }
     }
     
-    /**
-     * Controlos dados ao jogador
-     */
-    
-    public void move()
+    public void movement()
     {
-        if(Greenfoot.isKeyDown("l"))
+        if(Greenfoot.isKeyDown("right"))
         {
            move(5); 
+           if(jumping == false)
+           {
+               setImage(skinPlayerFly);
+           }
         }
-        if(Greenfoot.isKeyDown("j"))
+        if(Greenfoot.isKeyDown("left"))
         {
            move(-5); 
         }
-        if(Greenfoot.isKeyDown("k"))
-        {
-            setImage(skinPlayerCrouch);
-            setLocation(getX(), getY() + 10);
-        }
     }
+   
     
     /**
      * Faz com que o jogador salte, desde que teja no chao e que a tecla i esteja a ser pressionada
@@ -129,7 +127,7 @@ public class playerTwo extends Player
     
     public void checkKey()
     {
-        if(Greenfoot.isKeyDown("i") && jumping == false)
+        if(Greenfoot.isKeyDown("up") && jumping == false)
         {
             jump();
         }
@@ -142,7 +140,7 @@ public class playerTwo extends Player
             removeTouching(Obstacle_1.class);
             addPoints();
             getWorld().showText("Player 2 Score: " + score, 130, getWorld().getHeight() - 300);
-            Greenfoot.playSound("deepmaleburp.wav");
+            //Greenfoot.playSound("deepmaleburp.wav");
         }
     }
     
@@ -161,8 +159,6 @@ public class playerTwo extends Player
             removePoints();
             getWorld().showText("Player 2 Score: " + score, 130, getWorld().getHeight() - 300);
             Greenfoot.playSound("ow.wav");
-            
-            
         }
     }
 }

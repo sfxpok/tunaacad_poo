@@ -18,16 +18,10 @@ public class Player extends Actor
     // private int lives = 2;
     protected boolean jumping;
     protected boolean receivedLife;
-    private int i = 1;
-    
-    // protected GreenfootImage image1;
-    // protected GreenfootImage image2;
-    // protected GreenfootImage image3;
-    // protected GreenfootImage image4;
     
     protected GreenfootImage skinPlayerWalk;
     protected GreenfootImage skinPlayerJump;
-    protected GreenfootImage skinPlayerCrouch;
+    protected GreenfootImage skinPlayerFly;
     protected GreenfootImage skinPlayerGameOver;
     
     Counter lifeCounter = new Counter(); // instance of Counter
@@ -43,21 +37,32 @@ public class Player extends Actor
     
     public Player()
     {
-        // image1 = new GreenfootImage("ninja_normal.png"); // poe as imagens num array?
-        // image2 = new GreenfootImage("ninja_jump.png");
-        // image3 = new GreenfootImage("ninja_crouch.png");
-        // image4 = new GreenfootImage("ninja_over.png");
-        // setImage(image1);
+        skinPlayerWalk = new GreenfootImage("tuna_standing.png");
+        skinPlayerJump = new GreenfootImage("tuna_jumping.png");
+        skinPlayerFly = new GreenfootImage("tuna_movement_3.png");
         
-        skinPlayerWalk = new GreenfootImage("ninja_normal.png");
-        skinPlayerJump = new GreenfootImage("ninja_jump.png");
-        skinPlayerCrouch = new GreenfootImage("ninja_crouch.png");
-        skinPlayerGameOver = new GreenfootImage("ninja_over.png");
         setImage(skinPlayerWalk);
+    }
+   
+    public void movement()
+    {
+        if(Greenfoot.isKeyDown("d"))
+        {
+           move(5);
+           if(jumping == false)
+           {
+               setImage(skinPlayerFly);
+           }
+        }
+        if(Greenfoot.isKeyDown("a"))
+        {
+           move(-5); 
+           //moveSombraP1();
+        }
     }
     
     /**
-     * Verificaçao se o jogador esta no chao ou nao.
+     * Verificaçao se o jogador está no chão ou nao.
      * Esta verificaçao tem como auxiliar, o chao, sendo esse chao um Actor que tambem esta a
      * detectar se o jogador esta no chao ou nao.
      */

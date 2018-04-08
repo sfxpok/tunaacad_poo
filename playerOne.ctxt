@@ -1,14 +1,12 @@
 #BlueJ class context
 comment0.target=playerOne
-comment0.text=\n\ Write\ a\ description\ of\ class\ playerOne\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ playerOne\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=playerOne()
 comment10.params=
-comment10.target=void\ checkKey()
+comment10.target=void\ captureObstacle_1()
 comment11.params=
-comment11.target=void\ captureObstacle_1()
-comment12.params=
-comment12.target=void\ captureObstacle_2()
+comment11.target=void\ captureObstacle_2()
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
@@ -24,5 +22,5 @@ comment7.target=int\ getPoints()
 comment8.params=
 comment8.target=void\ addLifeWithScore()
 comment9.params=
-comment9.target=void\ move()
-numComments=13
+comment9.target=void\ checkKey()
+numComments=12

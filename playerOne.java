@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo
+
 /**
  * Write a description of class playerOne here.
  * 
@@ -45,25 +46,46 @@ public class playerOne extends Player
         
     }
     
+    /**
+     * Retorna o numero de vidas dentro da classe Counter
+     */
+    
     public Counter getLifeCounter()
     {
         return lifeCounter;
     }   
+    
+    /**
+     * Adiciona 20 pontos ao jogador
+     */
     
     public void addPoints()
     {
         score = score + 20;
     }
     
+    /**
+     * Retira 10 pontos ao jogador
+     */
+    
     public void removePoints()
     {
         score = score - 10;
     }
     
+    /**
+     * Retorna os pontos que o jogador tem
+     */
+    
     public int getPoints()
     {
         return score;
     }
+    
+   /**
+    * Uma vida é dada ao jogador se e só se o mesmo pode receber a vida (isto depende do booleano receivedLife para que
+    o jogador não receba vidas de forma infinita) e se atingiu 60*i pontos
+    */
     
     public void addLifeWithScore()
     {
@@ -84,6 +106,10 @@ public class playerOne extends Player
         }
     }
     
+    /**
+     * Controlos dados ao jogador
+     */
+
     public void move()
     {
         if(Greenfoot.isKeyDown("d"))
@@ -101,6 +127,10 @@ public class playerOne extends Player
         }
     }
     
+    /**
+     * Permite que o jogador salte se uma determinada tecla é carregada
+     */
+
     public void checkKey()
     {
         if(Greenfoot.isKeyDown("w") && jumping == false)
@@ -109,6 +139,10 @@ public class playerOne extends Player
         }
     }
     
+    /**
+     * Se o jogador apanhou o obstáculo 1 (barril), ele recebe 20 pontos e o obstáculo desaparece
+     */
+
     public void captureObstacle_1()
     {
         if(isTouching(Obstacle_1.class))
@@ -119,6 +153,11 @@ public class playerOne extends Player
         }
     }
     
+    /**
+     * Se o jogador apanhou o obstaculo 2 (aranha), ele perde 10 pontos e o obstáculo desaparece. Também abre a possibilidade de o jogador perder o jogo
+     * se o mesmo atinge 0 ou menos pontos
+     */
+
     public void captureObstacle_2()
     {
         if(isTouching(Obstacle_2.class))

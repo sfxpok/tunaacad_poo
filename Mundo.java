@@ -13,9 +13,16 @@ public class Mundo extends World
     //private int counter;
     // private int x;
     // private int y;
+    private GreenfootImage image1;
+    private GreenfootImage image2;
     
     private boolean createdObsOne = false;
     // private boolean createdObsTwo;
+    private Color aMinhaCor;
+    private int r = 255;
+    private int g = 255;
+    private int b = 0;
+    private boolean colorStop = false;
     
     /**
      * O construtor cria um mundo do tamanho 800x600 com um fundo cinzento.
@@ -34,6 +41,7 @@ public class Mundo extends World
         addObject(jogadorUm, 50, 549);
         addObject(jogadorUm.getLifeCounter(), 70, getHeight()/2 + 50);
         
+        
         playerTwo jogadorDois = new playerTwo();
         addObject(jogadorDois, 50, 260);
         addObject(jogadorDois.getLifeCounter(), 70, 50);
@@ -47,7 +55,34 @@ public class Mundo extends World
 
        sideScrollPlatform();
        createObstacle();
-    }   
+       pintaMundo();
+    } 
+    
+    public void pintaMundo()
+    {
+        if(b < 255 && colorStop == false){
+            r--;
+            g--;
+            b++;
+            if(b == 255){
+                colorStop = true;
+            }
+        }
+
+        if(colorStop == true){
+            b--;
+            r++;
+            g++;
+            if(b == 0){
+                colorStop = false;
+            }
+        }
+
+        fundo = getBackground();
+        Color aMinhaCor = new Color(r,g,b);
+        fundo.setColor(aMinhaCor);
+        fundo.fill();
+    }
     
     /**
      * Adiciona a plataforma no meio do mundo e no chao
