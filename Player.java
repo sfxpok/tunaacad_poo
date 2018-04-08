@@ -18,6 +18,7 @@ public class Player extends Actor
     // private int lives = 2;
     protected boolean jumping;
     protected boolean receivedLife;
+    protected int scoreToGetLife = 60;
     
     protected GreenfootImage skinPlayerWalk;
     protected GreenfootImage skinPlayerJump;
@@ -44,6 +45,10 @@ public class Player extends Actor
         setImage(skinPlayerWalk);
     }
    
+    /**
+     * Controlos definidos ao movimento do jogador (apenas para esquerda e direita)
+     */
+
     public void movement()
     {
         if(Greenfoot.isKeyDown("d"))
@@ -85,7 +90,7 @@ public class Player extends Actor
     }
     
     /**
-     * Permite que o jogador se mova no chao (?)
+     * Permite que o jogador se mova no chao
      */
     
     public void moveToGround(Actor ground)
@@ -141,6 +146,11 @@ public class Player extends Actor
         
     }
     
+    /**
+     * Este método só é utilizado quando o jogador tem 1 vida e apanhou um inimigo (o que resulta no fim do jogo).
+     * É nós dado uma mensagem de fim de jogo.
+     */
+
     public void gameOver() {
         
         //lifeCounter.setValue(0);

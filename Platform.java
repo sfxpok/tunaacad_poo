@@ -20,8 +20,7 @@ public class Platform extends Actor
     }
     
     /**
-     * Remove plataforma se esta chega ao limite direito do Mundo,
-     * adiciona nova plataforma após esta ser apagada
+     * Remove plataforma se esta chega ao limite (à direita) do Mundo
      */
     public void removePlatform()
     {

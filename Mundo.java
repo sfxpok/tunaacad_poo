@@ -16,8 +16,8 @@ public class Mundo extends World
     private GreenfootImage image1;
     private GreenfootImage image2;
     
-    private boolean createdObsOne = false;
-    // private boolean createdObsTwo;
+    private boolean createdGuitar = false;
+    // private boolean createdPen;
     private Color aMinhaCor;
     private int r = 255;
     private int g = 255;
@@ -51,13 +51,15 @@ public class Mundo extends World
     
     public void act()
     {
-       // obstacle_1 e obstacle_2 nao sao nomes bons, alterar quando houver as imagens corretas
-
        sideScrollPlatform();
        createObstacle();
        pintaMundo();
     } 
     
+    /**
+     * Este método altera a cor do fundo do Mundo ao longo do tempo de forma contínua
+     */
+
     public void pintaMundo()
     {
         if(b < 255 && colorStop == false){
@@ -115,13 +117,13 @@ public class Mundo extends World
                 return;
             }
             
-            if(!createdObsOne) {
-                createObstacleOne(x, y);
-                createdObsOne = true;
+            if(!createdGuitar) {
+                createGuitar(x, y);
+                createdGuitar = true;
             }
             else {
-                createObstacleTwo(x, y);
-                createdObsOne = false;
+                createPen(x, y);
+                createdGuitar = false;
             }
 
         }
@@ -145,21 +147,21 @@ public class Mundo extends World
     }
     
     /**
-     * Cria o obstaculo (barril)
+     * Cria o obstaculo (guitarra)
      */
     
-    public void createObstacleOne(int x, int y)
+    public void createGuitar(int x, int y)
     {
-        addObject(new Obstacle_1(), x, y);
+        addObject(new Guitar(), x, y);
     }
     
     /**
-     * Cria o inimigo
+     * Cria o inimigo (caneta)
      */
     
-    public void createObstacleTwo(int x, int y)
+    public void createPen(int x, int y)
     {
-        addObject(new Obstacle_2(), x, y);
+        addObject(new Pen(), x, y);
     }
     
     /**

@@ -90,8 +90,7 @@ public class Counter extends Actor
         // GreenfootImage text = new GreenfootImage("Lives left: " + value, 22, Color.WHITE, TRANSPARENT);
         GreenfootImage text = new GreenfootImage("Lives left: " + target, 22, Color.WHITE, TRANSPARENT);
 
-        image.drawImage(text, (image.getWidth()-text.getWidth())/2, 
-                        (image.getHeight()-text.getHeight())/2);
+        image.drawImage(text, (image.getWidth()-text.getWidth())/2, (image.getHeight()-text.getHeight())/2);
         setImage(image);
         
 

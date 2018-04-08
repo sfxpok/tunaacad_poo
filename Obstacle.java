@@ -17,6 +17,11 @@ public class Obstacle extends Actor
         // move();
     }
     
+    /**
+     * Os obstáculos movem-se para a esquerda, 2 passos no eixo X de cada vez. Quando o mesmo
+     * chega ao outro canto do Mundo (coordenada 0 do eixo X), ele é eliminado
+     */
+
     public void move()
     {
         setLocation(getX() - 2, getY());

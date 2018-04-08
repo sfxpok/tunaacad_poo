@@ -16,16 +16,16 @@ public class playerOne extends Player
 
     public playerOne()
     {
-        //
+        setImage(skinPlayerWalk);
     }
     
     public void act() 
     {
       checkFall();
       checkKey();
-      move();
-      captureObstacle_1();
-      captureObstacle_2();
+      movement();
+      captureGuitar();
+      capturePen();
       addLifeWithScore();
     }
     
@@ -84,7 +84,7 @@ public class playerOne extends Player
     
    /**
     * Uma vida é dada ao jogador se e só se o mesmo pode receber a vida (isto depende do booleano receivedLife para que
-    o jogador não receba vidas de forma infinita) e se atingiu 60*i pontos
+    o jogador não receba vidas de forma infinita) e se atingiu scoreToGetLife*i pontos
     */
     
     public void addLifeWithScore()
@@ -95,11 +95,11 @@ public class playerOne extends Player
             // capturedEnemy = false;
         // }
         
-        if(receivedLife == true && getPoints() <= 60 * (i+1)) {
+        if(receivedLife == true && getPoints() <= scoreToGetLife * (i+1)) {
             receivedLife = false;
         }
         
-        if(getPoints() >= 60 * i && getPoints() <= 60 * (i+1) && receivedLife == false) {
+        if(getPoints() >= scoreToGetLife * i && getPoints() <= scoreToGetLife * (i+1) && receivedLife == false) {
             lifeCounter.add(1);
             receivedLife = true;
             i++;
@@ -107,23 +107,22 @@ public class playerOne extends Player
     }
     
     /**
-     * Controlos dados ao jogador
+     * Controlos dados ao jogador, mas só ao movimento para a esquerda e direita.   
      */
 
-    public void move()
+    public void movement()
     {
         if(Greenfoot.isKeyDown("d"))
         {
            move(5); 
+           if(jumping == false)
+           {
+               setImage(skinPlayerFly);
+           }
         }
         if(Greenfoot.isKeyDown("a"))
         {
            move(-5); 
-        }
-        if(Greenfoot.isKeyDown("s"))
-        {
-            setImage(skinPlayerCrouch);
-            setLocation(getX(), getY() + 10);
         }
     }
     
@@ -140,27 +139,27 @@ public class playerOne extends Player
     }
     
     /**
-     * Se o jogador apanhou o obstáculo 1 (barril), ele recebe 20 pontos e o obstáculo desaparece
+     * Se o jogador captura a guitarra, a mesma desaparece e é atribuido mais 20 pontos ao jogador
      */
 
-    public void captureObstacle_1()
+    public void captureGuitar()
     {
-        if(isTouching(Obstacle_1.class))
+        if(isTouching(Guitar.class))
         {
-            removeTouching(Obstacle_1.class);
+            removeTouching(Guitar.class);
             addPoints();
             getWorld().showText("Player 1 Score: " + score, 130, getWorld().getHeight() - 10);
         }
     }
     
     /**
-     * Se o jogador apanhou o obstaculo 2 (aranha), ele perde 10 pontos e o obstáculo desaparece. Também abre a possibilidade de o jogador perder o jogo
-     * se o mesmo atinge 0 ou menos pontos
+     * Se o jogador captura a caneta, a mesma desaparece e é atribuido menos 10 pontos ao jogador.
+     * Se o jogador tem 1 vida, este método recorre ao método gameOver() para terminar o jogo.
      */
 
-    public void captureObstacle_2()
+    public void capturePen()
     {
-        if(isTouching(Obstacle_2.class))
+        if(isTouching(Pen.class))
         {
             
             //i--;
@@ -171,10 +170,10 @@ public class playerOne extends Player
                 return; // nao tirar este return
             }
             lifeCounter.subtract(1);
-            removeTouching(Obstacle_2.class);
+            removeTouching(Pen.class);
             removePoints();
             getWorld().showText("Player 1 Score: " + score, 130, getWorld().getHeight() - 10);
-            
+            Greenfoot.playSound("ow.wav");
             
         }
     }
