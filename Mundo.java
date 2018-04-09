@@ -9,8 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Mundo extends World
 {
     private GreenfootImage fundo;
-    //private Counter livesCounter = new Counter("Lives", 3);
-    //private int counter;
+    // private Counter livesCounter = new Counter("Lives", 3);
+    // private int counter;
     // private int x;
     // private int y;
     private GreenfootImage image1;
@@ -18,6 +18,7 @@ public class Mundo extends World
     
     private boolean createdGuitar = false;
     // private boolean createdPen;
+
     private Color aMinhaCor;
     private int r = 255;
     private int g = 255;
@@ -38,15 +39,21 @@ public class Mundo extends World
         fundo.fill();
         
         playerOne jogadorUm = new playerOne();
+        shadowPlayerOne shadowOne = new shadowPlayerOne();
         addObject(jogadorUm, 50, 549);
+        addObject(shadowOne, 50, 549);
         addObject(jogadorUm.getLifeCounter(), 70, getHeight()/2 + 50);
         
         
         playerTwo jogadorDois = new playerTwo();
+        shadowPlayerTwo shadowTwo = new shadowPlayerTwo();
         addObject(jogadorDois, 50, 260);
+        addObject(shadowTwo, 50, 549);
         addObject(jogadorDois.getLifeCounter(), 70, 50);
         
         createPlatform();
+        
+        setPaintOrder(Shadow.class);
     }
     
     public void act()
@@ -55,6 +62,30 @@ public class Mundo extends World
        createObstacle();
        pintaMundo();
     } 
+    
+    /**
+     * Este método remove as sombras e ambos os jogadores quando o jogo acaba
+     */
+
+    public void removeObjects() {
+    
+        removeObjects(getObjects(Player.class));
+        removeObjects(getObjects(Shadow.class));
+        
+        continueGame();
+        
+    }
+    
+    /**
+     * Apenas cria um botão para reiniciar o jogo
+     */
+
+    public void continueGame() {
+        
+        startOver rebootGame = new startOver();
+        addObject(rebootGame, 650, 375);
+    
+    }
     
     /**
      * Este método altera a cor do fundo do Mundo ao longo do tempo de forma contínua

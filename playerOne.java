@@ -12,6 +12,7 @@ public class playerOne extends Player
     private int i = 1;
     private int score;
     private boolean receivedLife;
+    // public  boolean canGenerateObstacles;
     // private boolean jumping;
 
     public playerOne()
@@ -27,9 +28,10 @@ public class playerOne extends Player
       captureGuitar();
       capturePen();
       addLifeWithScore();
+      //gameOver();
     }
     
-    public void gameOver() {
+   public void gameOver() {
         
         //lifeCounter.setValue(0);
         lifeCounter.subtract(1);
@@ -38,10 +40,14 @@ public class playerOne extends Player
         
         getWorld().showText("Player 2 wins!", getWorld().getWidth()/2, getWorld().getHeight()/2-100);
         
-        Greenfoot.playSound("trumpetfail.wav");
+        Greenfoot.playSound("soul_gameover_hit_break.wav");
         //getWorld().showText("Player 1 Score: " + getPoints(), 150, 530);
         setImage(skinPlayerGameOver);
-        Greenfoot.stop();
+        // Mundo.canGenerateObstacles = false;
+        
+        ((Mundo)getWorld()).removeObjects(); // typecasting
+      
+        // Greenfoot.stop();
         // return;
         
     }
@@ -149,6 +155,7 @@ public class playerOne extends Player
             removeTouching(Guitar.class);
             addPoints();
             getWorld().showText("Player 1 Score: " + score, 130, getWorld().getHeight() - 10);
+            Greenfoot.playSound("battle_item_eat.wav");
         }
     }
     
@@ -173,7 +180,7 @@ public class playerOne extends Player
             removeTouching(Pen.class);
             removePoints();
             getWorld().showText("Player 1 Score: " + score, 130, getWorld().getHeight() - 10);
-            Greenfoot.playSound("ow.wav");
+            Greenfoot.playSound("soul_damage_1.wav");
             
         }
     }

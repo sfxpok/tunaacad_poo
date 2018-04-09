@@ -22,7 +22,7 @@ public class Counter extends Actor
     {
         backgroundCounter = getImage();  // get image from class
         // value = 5;
-        target = 5;
+        target = 3;
         updateImage();
     }
      
@@ -30,16 +30,7 @@ public class Counter extends Actor
      * Atualizaçao do contador quando o Actor apanha algum item
      */
     public void act() 
-    {
-        // if (value > target ) {
-            // value--;
-            // updateImage();
-        // }
-        // else if (value < target) {
-            // value++;
-            // updateImage();
-        // }
-        
+    { 
         updateImage();
         
     }

@@ -38,11 +38,15 @@ public class playerTwo extends Player
         
         getWorld().showText("Player 1 wins!", getWorld().getWidth()/2, getWorld().getHeight()/2+100);
         
-        Greenfoot.playSound("trumpetfail.wav");
+        Greenfoot.playSound("soul_gameover_hit_break.wav");
         //getWorld().showText("Player 1 Score: " + getPoints(), 150, 530);
-        setImage(skinPlayerGameOver);
-        Greenfoot.stop();
+        //setImage(skinPlayerGameOver);
+        //Greenfoot.stop();
         // return;
+        
+        ((Mundo)getWorld()).removeObjects(); // typecasting
+
+        //getWorld().removeObject(this);
         
     }
     
@@ -145,7 +149,7 @@ public class playerTwo extends Player
             removeTouching(Guitar.class);
             addPoints();
             getWorld().showText("Player 2 Score: " + score, 130, getWorld().getHeight() - 300);
-            //Greenfoot.playSound("deepmaleburp.wav");
+            Greenfoot.playSound("battle_item_eat.wav");
         }
     }
     
@@ -168,7 +172,7 @@ public class playerTwo extends Player
             removeTouching(Pen.class);
             removePoints(); 
             getWorld().showText("Player 2 Score: " + score, 130, getWorld().getHeight() - 300);
-            Greenfoot.playSound("ow.wav");
+            Greenfoot.playSound("soul_damage_1.wav");
         }
     }
 }

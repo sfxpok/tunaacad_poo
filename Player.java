@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Player extends Actor
 {
     
-    private final int MAX_LIVES = 5;
+    private final int MAX_LIVES = 2;
     
     private int vSpeed = 0;
     private int accel = 1;
@@ -25,7 +25,7 @@ public class Player extends Actor
     protected GreenfootImage skinPlayerFly;
     protected GreenfootImage skinPlayerGameOver;
     
-    Counter lifeCounter = new Counter(); // instance of Counter
+    Counter lifeCounter = new Counter();
     
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
@@ -41,6 +41,7 @@ public class Player extends Actor
         skinPlayerWalk = new GreenfootImage("tuna_standing.png");
         skinPlayerJump = new GreenfootImage("tuna_jumping.png");
         skinPlayerFly = new GreenfootImage("tuna_movement_3.png");
+        skinPlayerGameOver = new GreenfootImage("ninja_over.png");
         
         setImage(skinPlayerWalk);
     }
@@ -144,25 +145,5 @@ public class Player extends Actor
         }
         jumping = true;
         
-    }
-    
-    /**
-     * Este método só é utilizado quando o jogador tem 1 vida e apanhou um inimigo (o que resulta no fim do jogo).
-     * É nós dado uma mensagem de fim de jogo.
-     */
-
-    public void gameOver() {
-        
-        //lifeCounter.setValue(0);
-        lifeCounter.subtract(1);
-        //getWorld().removeObject(this);
-        getWorld().showText("GAME OVER", getWorld().getWidth()/2, getWorld().getHeight()/2);
-        Greenfoot.playSound("trumpetfail.wav");
-        //getWorld().showText("Player 1 Score: " + getPoints(), 150, 530);
-        setImage(skinPlayerGameOver);
-        Greenfoot.stop();
-        // return;
-        
-    }
-    
+    }   
 }

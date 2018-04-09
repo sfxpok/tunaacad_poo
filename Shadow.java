@@ -27,7 +27,7 @@ public class Shadow extends Actor
         int p2X = ((playerOne) getWorld().getObjects(playerOne.class).get(0)).getX();
         int p2Y = ((playerOne) getWorld().getObjects(playerOne.class).get(0)).getY();
         
-        setLocation(p2X - 3, p2Y + 40);
+        setLocation(p2X - 8, p2Y + 36);
        
     }
     
@@ -36,7 +36,7 @@ public class Shadow extends Actor
         int p2X = ((playerTwo) getWorld().getObjects(playerTwo.class).get(0)).getX();
         int p2Y = ((playerTwo) getWorld().getObjects(playerTwo.class).get(0)).getY();
         
-        setLocation(p2X - 3, p2Y + 40);
+        setLocation(p2X - 8, p2Y + 36);
         
     }
     

@@ -1,5 +1,4 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.List;
 
 /**
  * Write a description of class Pen here.
@@ -17,16 +16,5 @@ public class Pen extends Obstacle
     {
         move();
     }
-    
-    /**public void updateCounter()
-    {
-        if (Counter.getValue() == 1)
-        {
-            Counter.setValue(0);
-            getWorld().removeObject(this);
-            Greenfoot.stop();
-            return;
-        }
-        Counter.subtract(1);
-    }**/
+   
 }

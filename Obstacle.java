@@ -26,7 +26,7 @@ public class Obstacle extends Actor
     {
         setLocation(getX() - 2, getY());
         
-        if(getX() == 0 )
+        if(getX() == 0)
         {
             getWorld().removeObject(this);
         }
