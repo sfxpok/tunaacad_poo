@@ -14,6 +14,7 @@ public class playerOne extends Player
     private boolean receivedLife;
     // public  boolean canGenerateObstacles;
     // private boolean jumping;
+    private int capturePenInARow;
 
     public playerOne()
     {
@@ -43,7 +44,6 @@ public class playerOne extends Player
         Greenfoot.playSound("soul_gameover_hit_break.wav");
         //getWorld().showText("Player 1 Score: " + getPoints(), 150, 530);
         setImage(skinPlayerGameOver);
-        // Mundo.canGenerateObstacles = false;
         
         ((Mundo)getWorld()).removeObjects(); // typecasting
       
@@ -78,6 +78,14 @@ public class playerOne extends Player
     {
         score = score - 10;
     }
+
+    /**
+     * Retira 20 pontos ao jogador (overload)
+     */
+
+    public void removePoints(int pointsToRemove) {
+        score = score - pointsToRemove;
+    }
     
     /**
      * Retorna os pontos que o jogador tem
@@ -96,11 +104,6 @@ public class playerOne extends Player
     public void addLifeWithScore()
     {
         
-        // if (capturedEnemy) {
-            // i--;
-            // capturedEnemy = false;
-        // }
-        
         if(receivedLife == true && getPoints() <= scoreToGetLife * (i+1)) {
             receivedLife = false;
         }
@@ -118,7 +121,7 @@ public class playerOne extends Player
 
     public void movement()
     {
-        if(Greenfoot.isKeyDown("d"))
+        if(Greenfoot.isKeyDown("d")) // override
         {
            move(5); 
            if(jumping == false)
@@ -126,7 +129,7 @@ public class playerOne extends Player
                setImage(skinPlayerFly);
            }
         }
-        if(Greenfoot.isKeyDown("a"))
+        if(Greenfoot.isKeyDown("a")) // override
         {
            move(-5); 
         }
@@ -152,6 +155,7 @@ public class playerOne extends Player
     {
         if(isTouching(Guitar.class))
         {
+            capturePenInARow = 0;
             removeTouching(Guitar.class);
             addPoints();
             getWorld().showText("Player 1 Score: " + score, 130, getWorld().getHeight() - 10);
@@ -169,19 +173,26 @@ public class playerOne extends Player
         if(isTouching(Pen.class))
         {
             
-            //i--;
-            
             if (lifeCounter.getValue() == 1)
             {
                 gameOver();
                 return; // nao tirar este return
             }
+
+            capturePenInARow++;
+
+            if(capturePenInARow == 2) {
+                removePoints(20); // overload
+            }
+            else {
+                removePoints();
+            }
+
             lifeCounter.subtract(1);
             removeTouching(Pen.class);
-            removePoints();
             getWorld().showText("Player 1 Score: " + score, 130, getWorld().getHeight() - 10);
             Greenfoot.playSound("soul_damage_1.wav");
-            
+
         }
     }
 }
