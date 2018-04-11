@@ -75,8 +75,8 @@ public class Player extends Actor
     
     public boolean onGround()
     {
-        int spriteHeight = getImage().getHeight();
-        int yDistance = (int) (spriteHeight / 2 + 5);
+        // int spriteHeight = getImage().getHeight();
+        // int yDistance = (int) (spriteHeight / 2 + 5);
         
         Actor ground = getOneObjectAtOffset ( 0, getImage().getHeight()/2, Platform.class );
         if(ground == null)
