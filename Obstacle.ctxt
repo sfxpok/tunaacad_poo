@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=Obstacle
-comment0.text=\n\ Write\ a\ description\ of\ class\ Obstacle\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\r\n
 comment1.params=
 comment1.target=void\ act()
-comment1.text=\n\ Act\ -\ do\ whatever\ the\ Obstacle\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Obstacle\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment2.params=
 comment2.target=void\ move()
-comment2.text=\n\ Os\ obst\u00E1culos\ movem-se\ para\ a\ esquerda,\ 2\ passos\ no\ eixo\ X\ de\ cada\ vez.\ Quando\ o\ mesmo\n\ chega\ ao\ outro\ canto\ do\ Mundo\ (coordenada\ 0\ do\ eixo\ X),\ ele\ \u00E9\ eliminado\n
+comment2.text=\r\n\ Os\ obst\u00E1culos\ movem-se\ para\ a\ esquerda,\ 2\ passos\ no\ eixo\ X\ de\ cada\ vez.\ Quando\ o\ mesmo\r\n\ chega\ ao\ outro\ canto\ do\ Mundo\ (coordenada\ 0\ do\ eixo\ X),\ ele\ \u00E9\ eliminado\r\n
 numComments=3

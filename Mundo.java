@@ -1,29 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class World here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ *
  */
 public class Mundo extends World
 {
     private GreenfootImage fundo;
-    // private Counter livesCounter = new Counter("Lives", 3);
-    // private int counter;
-    // private int x;
-    // private int y;
-    private GreenfootImage image1;
-    private GreenfootImage image2;
     
     private boolean createdGuitar = false;
-    // private boolean createdPen;
 
     private Color aMinhaCor;
+    
     private int r = 255;
     private int g = 255;
     private int b = 0;
-    private boolean colorStop = false;
+    private boolean colorStop = false; // Pára de incrementar a cor azul se True
     
     /**
      * O construtor cria um mundo do tamanho 800x600 com um fundo cinzento.
@@ -42,8 +33,7 @@ public class Mundo extends World
         shadowPlayerOne shadowOne = new shadowPlayerOne();
         addObject(jogadorUm, 50, 549);
         addObject(shadowOne, 50, 549);
-        addObject(jogadorUm.getLifeCounter(), 70, getHeight()/2 + 50);
-        
+        addObject(jogadorUm.getLifeCounter(), 70, getHeight()/2 + 50);        
         
         playerTwo jogadorDois = new playerTwo();
         shadowPlayerTwo shadowTwo = new shadowPlayerTwo();
@@ -53,7 +43,7 @@ public class Mundo extends World
         
         createPlatform();
         
-        setPaintOrder(Shadow.class);
+        setPaintOrder(Shadow.class); //Da prioridade aos objetos desta classe
     }
     
     public void act()
@@ -65,32 +55,26 @@ public class Mundo extends World
     
     /**
      * Este método remove as sombras e ambos os jogadores quando o jogo acaba
+     * e coloca um objeto no mundo que se clicado permite voltar ao Menu
      */
-
-    public void removeObjects() {
-    
+    public void removeObjects() {  
         removeObjects(getObjects(Player.class));
         removeObjects(getObjects(Shadow.class));
         
-        continueGame();
-        
+        continueGame();     
     }
     
     /**
-     * Apenas cria um botão para reiniciar o jogo
+     * Cria um botão para reiniciar o jogo
      */
-
-    public void continueGame() {
-        
+    public void continueGame() {   
         startOver rebootGame = new startOver();
-        addObject(rebootGame, 650, 375);
-    
+        addObject(rebootGame, 650, 375); 
     }
     
     /**
-     * Este método altera a cor do fundo do Mundo ao longo do tempo de forma contínua
+     * Este método alterna a cor de fundo do Mundo, continuamente (entre amarelo e azul)
      */
-
     public void pintaMundo()
     {
         if(b < 255 && colorStop == false){
@@ -135,16 +119,14 @@ public class Mundo extends World
      * plataformas. Se e o caso, entao esse obstaculo nao e gerado. Ambos os obstaculos sao
      * gerados conforme uma condiçao no fim deste metodo, onde a mesma esta dependente se um
      * dado obstaculo ja foi gerado ou nao.
-     */
-    
-    public void createObstacle() {
-     
+     */    
+    public void createObstacle() {   
         if(Greenfoot.getRandomNumber(100) < 0.5)
         { 
             int x = getWidth();
             int y = Greenfoot.getRandomNumber(getHeight());
             
-            if(avoidConflict(y)) {
+            if(avoidConflict(y)) { //Este metodo encontra-se logo abaixo
                 return;
             }
             
@@ -157,15 +139,13 @@ public class Mundo extends World
                 createdGuitar = false;
             }
 
-        }
-        
+        }       
     }
     
     /**
      * Este metodo faz com que os obstaculos nao fiquem por cima das plataformas ou quase fora do
      * Mundo
-     */
-    
+     */    
     public boolean avoidConflict(int y) {
     
         if(y > 0 && y < 20 || y > 270 && y < 320 || y > 550 && y < 600) {
@@ -180,7 +160,6 @@ public class Mundo extends World
     /**
      * Cria o obstaculo (guitarra)
      */
-    
     public void createGuitar(int x, int y)
     {
         addObject(new Guitar(), x, y);
@@ -188,8 +167,7 @@ public class Mundo extends World
     
     /**
      * Cria o inimigo (caneta)
-     */
-    
+     */    
     public void createPen(int x, int y)
     {
         addObject(new Pen(), x, y);
@@ -199,19 +177,15 @@ public class Mundo extends World
      * Remove plataforma se esta chega ao limite direito do Mundo,
      * adiciona nova plataforma após esta ser apagada
      */
-    public void sideScrollPlatform(){
+    public void sideScrollPlatform(){ //movePlataforma();
         int numPlatforms = getObjects(Platform.class).size();
         int yCoordPlatformMiddle = getHeight()/2;
         int yCoordPlatformBottom = getHeight()-10;
         
         Platform platform = new Platform();
-        //if(getObjects(Platform.class).isEmpty()){
         if(numPlatforms == 2){
             addObject(new Platform(), 0, yCoordPlatformMiddle);
             addObject(new Platform(), 0, yCoordPlatformBottom);
         }
-    }
-    
-    
-    
+    }   
 }

@@ -1,10 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Player here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ *
  */
 public class Player extends Actor
 {
@@ -13,9 +10,9 @@ public class Player extends Actor
     
     private int vSpeed = 0;
     private int accel = 1;
-    private int jumpStrength = 20;
+    private int jumpStrength = 20; // Basicamente a altura do salto
     protected int score = 0;
-    // private int lives = 2;
+
     protected boolean jumping;
     protected boolean receivedLife;
     protected int scoreToGetLife = 60;
@@ -49,7 +46,6 @@ public class Player extends Actor
     /**
      * Controlos definidos ao movimento do jogador (apenas para esquerda e direita)
      */
-
     public void movement()
     {
         if(Greenfoot.isKeyDown("d"))
@@ -62,8 +58,7 @@ public class Player extends Actor
         }
         if(Greenfoot.isKeyDown("a"))
         {
-           move(-5); 
-           //moveSombraP1();
+           move(-5);
         }
     }
     
@@ -71,13 +66,9 @@ public class Player extends Actor
      * Verificaçao se o jogador está no chão ou nao.
      * Esta verificaçao tem como auxiliar, o chao, sendo esse chao um Actor que tambem esta a
      * detectar se o jogador esta no chao ou nao.
-     */
-    
+     */    
     public boolean onGround()
     {
-        // int spriteHeight = getImage().getHeight();
-        // int yDistance = (int) (spriteHeight / 2 + 5);
-        
         Actor ground = getOneObjectAtOffset ( 0, getImage().getHeight()/2, Platform.class );
         if(ground == null)
         {
@@ -92,8 +83,7 @@ public class Player extends Actor
     
     /**
      * Permite que o jogador se mova no chao
-     */
-    
+     */    
     public void moveToGround(Actor ground)
     {
         int groundHeight = ground.getImage().getHeight();
@@ -106,8 +96,7 @@ public class Player extends Actor
     
     /**
      * Verifica se o jogador esta a cair
-     */
-    
+     */    
     public void checkFall()
     {
         if(onGround())
@@ -122,8 +111,7 @@ public class Player extends Actor
     
     /**
      * Habilidade de poder saltar
-     */
-    
+     */   
     public void jump()
     {
         vSpeed = vSpeed - jumpStrength;
@@ -134,8 +122,7 @@ public class Player extends Actor
     
     /**
      * O jogador cai com uma determinada velocidade se o mesmo esta no ar
-     */
-    
+     */   
     public void fall()
     {
         setLocation( getX(), getY() + vSpeed );
@@ -143,7 +130,6 @@ public class Player extends Actor
         {
             vSpeed = vSpeed + accel;
         }
-        jumping = true;
-        
+        jumping = true;        
     }   
 }

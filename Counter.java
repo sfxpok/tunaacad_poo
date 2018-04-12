@@ -3,9 +3,6 @@ import java.awt.Color.*;
  
 /**
  * Contador de vidas
- * 
- * @author
- * @version
  */
 public class Counter extends Actor
 {
@@ -14,14 +11,12 @@ public class Counter extends Actor
     private GreenfootImage backgroundCounter;
     private int value;
     private int target;
- 
     /**
      * Construtor do contador
      */
     public Counter()
     {
         backgroundCounter = getImage();  // get image from class
-        // value = 5;
         target = 3;
         updateImage();
     }
@@ -31,8 +26,7 @@ public class Counter extends Actor
      */
     public void act() 
     { 
-        updateImage();
-        
+        updateImage();    
     }
  
     /**
@@ -56,7 +50,6 @@ public class Counter extends Actor
      */
     public int getValue()
     {
-        // return value;
         return target;
     }
  
@@ -66,7 +59,6 @@ public class Counter extends Actor
     public void setValue(int newValue)
     {
         target = newValue;
-        // value = newValue;
         updateImage();
     }
  
@@ -77,14 +69,8 @@ public class Counter extends Actor
     {
         GreenfootImage image = new GreenfootImage(backgroundCounter);
         image.scale(image.getWidth()/4,image.getHeight()/4);
-       
-        // GreenfootImage text = new GreenfootImage("Lives left: " + value, 22, Color.WHITE, TRANSPARENT);
         GreenfootImage text = new GreenfootImage("Lives left: " + target, 22, Color.WHITE, TRANSPARENT);
-
         image.drawImage(text, (image.getWidth()-text.getWidth())/2, (image.getHeight()-text.getHeight())/2);
         setImage(image);
-        
-
-    }
-   
+    }   
 }

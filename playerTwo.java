@@ -1,20 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class playerTwo here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ *
  */
 public class playerTwo extends Player
 {
     private int i = 1;
     private int score;
     private boolean receivedLife;
-    // private boolean jumping;
     private int capturePenInARow;
     
-
     public playerTwo()
     {
         setImage(skinPlayerWalk);
@@ -22,39 +17,25 @@ public class playerTwo extends Player
     
     public void act() 
     {
-      checkFall();
-      checkKey();
-      movement();
-      captureGuitar();
-      capturePen();
-      addLifeWithScore();
+          checkFall();
+          checkKey();
+          movement();
+          captureGuitar();
+          capturePen();
+          addLifeWithScore();
     }
     
     public void gameOver() {
-        
-        //lifeCounter.setValue(0);
         lifeCounter.subtract(1);
-        //getWorld().removeObject(this);
-        getWorld().showText("GAME OVER", getWorld().getWidth()/2, getWorld().getHeight()/2);
-        
-        getWorld().showText("Player 1 wins!", getWorld().getWidth()/2, getWorld().getHeight()/2+100);
-        
-        Greenfoot.playSound("soul_gameover_hit_break.wav");
-        //getWorld().showText("Player 1 Score: " + getPoints(), 150, 530);
-        //setImage(skinPlayerGameOver);
-        //Greenfoot.stop();
-        // return;
-        
-        ((Mundo)getWorld()).removeObjects(); // typecasting
-
-        //getWorld().removeObject(this);
-        
+        getWorld().showText("GAME OVER", getWorld().getWidth()/2, getWorld().getHeight()/2);  
+        getWorld().showText("Player 1 wins!", getWorld().getWidth()/2, getWorld().getHeight()/2+100);       
+        Greenfoot.playSound("soul_gameover_hit_break.wav");       
+        ((Mundo)getWorld()).removeObjects();       
     }
     
     /**
      * Retorna o numero de vidas dentro da classe Counter
-     */
-    
+     */    
     public Counter getLifeCounter()
     {
         return lifeCounter;
@@ -62,8 +43,7 @@ public class playerTwo extends Player
     
     /**
      * Adiciona 20 pontos ao jogador
-     */
-    
+     */   
     public void addPoints()
     {
         score = score + 20;
@@ -71,8 +51,7 @@ public class playerTwo extends Player
     
     /**
      * Retira 10 pontos ao jogador
-     */
-    
+     */   
     public void removePoints()
     {
         score = score - 10;
@@ -81,16 +60,13 @@ public class playerTwo extends Player
     /**
      * Retira 20 pontos ao jogador (overload)
      */
-
     public void removePoints(int pointsToRemove) {
         score = score - pointsToRemove;
-    }
-    
+    }    
     
     /**
      * Retorna os pontos que o jogador tem
-     */
-    
+     */    
     public int getPoints()
     {
         return score;
@@ -99,11 +75,9 @@ public class playerTwo extends Player
     /**
      * Uma vida é dada ao jogador se e só se o mesmo pode receber a vida (isto depende do booleano receivedLife para que
      o jogador não receba vidas de forma infinita) e se atingiu scoreToGetLife*i pontos
-     */
-    
+     */    
     public void addLifeWithScore()
-    {
-        
+    {        
         if(receivedLife == true && getPoints() <= scoreToGetLife * (i+1)) {
             receivedLife = false;
         }
@@ -118,7 +92,6 @@ public class playerTwo extends Player
     /**
      * Controlos dados ao jogador, mas só ao movimento para a esquerda e direita.   
      */
-
     public void movement()
     {
         if(Greenfoot.isKeyDown("right"))
@@ -133,13 +106,11 @@ public class playerTwo extends Player
         {
            move(-5); 
         }
-    }
-   
+    }   
     
     /**
      * Permite que o jogador salte se uma determinada tecla é carregada
      */
-
     public void checkKey()
     {
         if(Greenfoot.isKeyDown("up") && jumping == false)
@@ -151,7 +122,6 @@ public class playerTwo extends Player
     /**
      * Se o jogador captura a guitarra, a mesma desaparece e é atribuido mais 20 pontos ao jogador
      */
-
     public void captureGuitar()
     {
         if(isTouching(Guitar.class))
@@ -168,12 +138,10 @@ public class playerTwo extends Player
      * Se o jogador captura a caneta, a mesma desaparece e é atribuido menos 10 pontos ao jogador.
      * Se o jogador tem 1 vida, este método recorre ao método gameOver() para terminar o jogo.
      */
-
     public void capturePen()
     {
         if(isTouching(Pen.class))
-        {
-            
+        {           
             if (lifeCounter.getValue() == 1)
             {
                 gameOver();

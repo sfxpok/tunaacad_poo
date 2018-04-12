@@ -1,15 +1,13 @@
 #BlueJ class context
 comment0.target=Shadow
-comment0.text=\n\ Write\ a\ description\ of\ class\ Shadow\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\r\n
 comment1.params=
 comment1.target=void\ act()
-comment1.text=\n\ Act\ -\ do\ whatever\ the\ Shadow\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Shadow\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment2.params=
 comment2.target=Shadow()
 comment3.params=
 comment3.target=void\ moveSombraP1()
 comment4.params=
 comment4.target=void\ moveSombraP2()
-comment5.params=
-comment5.target=void\ rodaSombra()
-numComments=6
+numComments=5
